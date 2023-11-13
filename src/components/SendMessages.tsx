@@ -26,9 +26,9 @@ const SendMessages: React.FC = () => {
 
     return (
         <div className="flex justify-center">
-            <form onSubmit={handleSubmit}>
-                <input className=" text-zinc-950 p-1" value={input} onChange={(e) => setInput(e.target.value)} type="text" />
-                <Button type="submit">Enviar</Button>
+            <form className="flex flex-col" onSubmit={handleSubmit}>
+                <input className=" text-zinc-950 p-2 mt-4 mb-2 rounded-sm" value={input} onChange={(e) => setInput(e.target.value)} type="text" />
+                <Button className="button-enviar" type="submit" variant="contained">Enviar</Button>
             </form>
         </div>
     )

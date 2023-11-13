@@ -13,11 +13,13 @@ const ContainerLogins: React.FC = () => {
     const name = user ? user.displayName : "Full Name"
 
     return (
-        <div className="flex flex-col w-40 m-6 absolute">
-            <h1>ChatApp</h1>
-            <img src={image || imageLink } alt="Image of you" />
-            <p>{name}</p>
-            {user ? <Logout /> : <Login />}
+        <div className="flex justify-center flex-col m-auto text-center items-center">
+            <h1 className=" text-3xl font-bold mt-2">ChatApp</h1>
+            <img className="w-32 my-4 rounded-full" src={image || imageLink} alt="Image of you" />
+            <p className="text-lg my-2">{name}</p>
+            <div className='mb-6 mt-2'>
+                {user ? <Logout /> : <Login />}
+            </div>
         </div>
     )
 }

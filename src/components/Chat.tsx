@@ -22,7 +22,7 @@ const Chat: React.FC = () => {
 
 
     return (
-        <main>
+        <main className="chat-content">
             {
                 messages && messages.map(item => (
                     <Message
