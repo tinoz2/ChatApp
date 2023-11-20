@@ -1,30 +1,14 @@
-import { useState, useEffect } from "react"
+import useMessage from "../hooks/useMessages"
 import Message from "./Message"
-import { db } from "../main.tsx"
-import { query, collection, orderBy, onSnapshot } from "firebase/firestore"
 
 const Chat: React.FC = () => {
 
-    const [messages, setMessages] = useState<any[]>([])
-
-    useEffect(() => {
-        const newQuery = query(collection(db, "messages"), orderBy("timestamp"))
-
-        const unSuscribe = onSnapshot(newQuery, (querySnapshot) => {
-            let currentMessages: any = []
-            querySnapshot.forEach(item => {
-                currentMessages.push({ content: item.data(), id: item.id })
-            })
-            setMessages(currentMessages)
-        })
-        return unSuscribe
-    }, [])
-
+    const { messages } : any = useMessage()
 
     return (
         <main className="chat-content">
             {
-                messages && messages.map(item => (
+                messages && messages.map((item : any) => (
                     <Message
                         key={item.id}
                         message={item.content}
